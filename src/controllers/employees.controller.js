@@ -2,10 +2,10 @@ import { pool } from "../db.js";
 
 export const getEmployees = async (req, res) => {
   try {
-    const [rows] = await pool.query("SELECT * FROM employee");
+    const [rows] = await pool.query("SELECT * FROM padron");
     res.json(rows);
   } catch (error) {
-    return res.status(500).json({ message: "Something goes wrong" });
+    return res.status(500).json({ message: "Algo fallo, disculpas" });
   }
 };
 
@@ -26,7 +26,7 @@ export const getEmployee = async (req, res) => {
   }
 };
 
-export const deleteEmployee = async (req, res) => {
+/*export const deleteEmployee = async (req, res) => {
   try {
     const { id } = req.params;
     const [rows] = await pool.query("DELETE FROM employee WHERE id = ?", [id]);
@@ -75,4 +75,4 @@ export const updateEmployee = async (req, res) => {
   } catch (error) {
     return res.status(500).json({ message: "Something goes wrong" });
   }
-};
+};*/
